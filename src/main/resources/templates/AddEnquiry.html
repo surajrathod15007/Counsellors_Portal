@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en"   xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+<head>
+<meta charset="ISO-8859-1">
+<title> Add Enquiry Page </title>
+
+   <style>
+        body 
+        {
+          background-image: url(./EnqueryImage2.png);
+          background-size: cover;
+          background-attachment: fixed;
+        }
+        .container
+        {
+            background-color: cornflowerblue;
+           width: 440px;
+           height: 640px;
+           display: flex;
+           flex-direction: column;
+           border: 2px solid brown;
+           margin-left: 500px;
+           margin-top: 70px;
+           justify-content: start;
+           align-items: center;
+           justify-content:space-evenly;
+        }
+        input,select,option,label,button
+        {
+            width: 200px;
+            height: 35px;
+            font-size: large;
+        }
+        .container2
+        {
+            display: flex;
+            flex-direction: row;
+            margin-top: 60px;
+            justify-content: space-between;
+        }
+        button
+        {
+            width: 180px;
+            height: 30px;  
+        }
+    </style>
+
+</head>
+<body>
+          <div class="container">
+        <p th:if="${smsg}" th:text="${smsg}" style="color:green"></p> 
+        <p th:if="${emsg}" th:text="${emsg}" style="color:green"></p>   
+           
+    <h2> Add New Enquery </h2>
+    
+    <form action="#" th:action="@{/save_enquiry}" th:object="${enquiry}" method="post"> 
+    
+      <input type="hidden" th:field="*{enqId}">
+    
+    <label for="name"> Name </label>
+    <input type="text" th:field="*{name}"  placeholder="Enter Your Name"> <br><br>
+    
+    <label for="name"> Email </label>
+    <input type="text" th:field="*{email}"  placeholder="Enter Your Email"> <br><br>
+    
+    <label for="phoneno"> Mobile No. </label>
+    <input type="text" th:field="*{phno}"  placeholder="Enter Your Mobile No."> <br><br>
+    
+    <label for="course"> Select Course </label>
+    <select name="course" th:field="*{course}"> <br><br>
+        <option value="Java"> Java </option>
+        <option value="C++"> C++ </option>
+        <option value="Python"> Python </option>      
+        <option value="C#"> C# </option>
+    </select> <br><br>
+    
+    <label for="mode"> Select Class Mode </label>
+    <select name="mode" th:field="*{mode}">  <br><br>
+        <option value="Online"> Online </option>
+        <option value="Offline"> Offline </option>
+    </select><br><br>
+    
+    <label for="status"> Select Status </label>
+    <select name="mode" th:field="*{status}">  <br><br>                 
+        <option value="Open"> Open </option>
+        <option value="Lost"> Lost </option> 
+        <option value="Enrolled"> Enrolled </option>
+              
+    </select><br><br>
+    
+    <label for="created_date">Enter Created Date</label>
+    <input type="date" placeholder="Select Date"> <br><br>
+    
+    <label for="updated_date">Enter Updated Date</label>
+    <input type="date" placeholder="Select Date"> <br><br>
+    
+
+        <button type="submit"> Save </button> 
+        <button> <a th:href="@{/enquiries}"> View All Enqueries </a> </button>
+    </form> 
+     
+    <div class="container2">       
+        
+   </div>
+ </div>  
+</body>
+</html>

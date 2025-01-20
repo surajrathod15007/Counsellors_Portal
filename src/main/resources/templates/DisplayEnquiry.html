@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html  lang="en"   xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title> Display Enquiry </title>
+
+</head>
+<body>
+       
+  
+       <div align="center" >
+            <div class="c1">
+                 <button> <a th:href="@{/display_enquiry}"> Add New Enquery </a> </button> <br>
+                 
+                 
+                 <h2> View Enqueries Here </h2>  
+            </div>
+
+            <div class="c2"> 
+                 <form th:object="${enq}"  th:action="@{/filter_enquiry}"  method="post">
+                
+                 Course: <select th:field="*{course}">
+                                <option value="">-Select-</option>
+                                <option value="Java">Java</option>
+                                <option value="C++">C++</option>
+                                <option value="Python">Python</option>  
+                                <option value="C#">C#</option>
+                             </select>
+                             
+                 Mode: <select th:field="*{mode}" >
+                            <option value="">-Select-</option>
+                            <option value="Online">Online</option>
+                            <option value="Offline">Offline</option>
+                         </select>            
+
+                 Status: <select th:field="*{status}" >
+                            <option value="">-Select-</option>
+                            <option value="Open">Open</option>
+                            <option value="Lost">Lost</option>
+                            <option value="Enrolled">Enrolled</option>
+                         </select> <br> 
+                         
+                  <input type="submit" value="search">
+                 </form>         
+            </div>
+
+            <div class="c3">
+                 <table border="1">
+                      <thead>
+                          <tr>
+                             <th>Id</th>
+                             <th>Name</th>
+                             <th>Phno</th>
+                             <th>Course Name</th>
+                             <th>Class Mode</th>
+                             <th>Status</th>
+                             <th>Action</th> 
+                          </tr>
+                      </thead>
+                      <tbody>
+
+                           <tr th:each="enq : ${enqs}">
+                            <td th:text="${enq.enqId}"> Raju</td>
+                            <td th:text="${enq.name}"> Raju</td>
+                            <td th:text="${enq.phno}"> 8308</td>   
+                            <td th:text="${enq.course}"> C++</td>
+                            <td th:text="${enq.mode}"> Offline</td>
+                            <td th:text="${enq.status}"> Old</td>   
+                            
+                            <td> <a th:href="@{/edit_equiry/{eqId}(eqId=${enq.enqId})}">Edit </a> </td>
+                           </tr>
+                      </tbody>        
+                 </table>
+                 
+              
+                 
+            </div>
+       </div>  
+          
+</body>
+</html>

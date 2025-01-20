@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Page</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <style>
+        
+         .main
+         {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border: 2px solid black;
+            width: 400px;
+            height: 400px;
+            margin-left: 550px;
+         }
+         .c1
+         {
+            display: flex;
+            flex-direction: column;
+         }
+         .c2
+         {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+         }
+         h1
+         {
+            text-align: center;
+           
+         }
+    </style>
+</head>
+<body>
+       <h1> Counsellors Portal </h1> 
+   <div class="main"> 
+
+     <div class="c1">
+       <h2> Welcome To Your Dashboard </h2> 
+      Total Enquires :    <p th:text="${dashboard.totalEnqs}">  </p>
+      Open Enquires :     <p th:text="${dashboard.openEnqs}">  </p>
+      Lost Enquires :     <p th:text="${dashboard.lostEnqs}">  </p>
+      Enrolled Enquires : <p th:text="${dashboard.enrolledEnqs}">  </p>
+     </div>
+       
+      <div class="c2">
+          <button class="btn btn-primary"> <a th:href="@{/display_enquiry}"> Add New Enquiry </a> </button> <br>
+          <button class="btn btn-primary"> <a th:href="@{/enquiries}"> View Enquiry </a> </button> <br>
+          <button class="btn btn-danger">  <a th:href="@{/}">  Log Out </a> </button>  <br>   
+      </div> 
+
+    </div>   
+</body>
+</html>

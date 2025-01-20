@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
+<head>
+<meta charset="ISO-8859-1">
+<title> Counsellors Registration </title>
+</head>
+<body>
+         <h1> Counsellors Registration </h1>
+         
+        <form action="#" th:action="@{/register_counsellor}" th:object="${counsellor}" method="post">
+                 <label for="name">Name</label>
+                 <input type="text" th:field="*{name}" placeholder="Enter Name"> <br><br>
+                 
+                 <label for="email">Email</label>
+                 <input type="email" th:field="*{email}" placeholder="Enter Email"> <br><br>
+                 
+                 <label for="password">Password</label>
+                 <input type="password" th:field="*{pwd}" placeholder="Enter Password"> <br><br>
+                 
+                 <label for="phoneno">Contact</label>
+                 <input type="number" th:field="*{phno}" placeholder="Enter Mobile No"> <br><br>
+                 
+                 <input id="r" type="submit" value="Sign-Up"> <br><br>           
+            </form>   
+            <div class="c1"> 
+                
+                <p>Do You Have Account ? <a th:href="@{/}">Sign-In Here</a> </p>
+            </div>
+            <p th:if="${smsg}" th:text="${smsg}" style="color:green"></p>
+</body>
+</html>
